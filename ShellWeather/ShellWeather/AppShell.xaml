@@ -34,6 +34,9 @@
         <Tab Title="Browse" Icon="tab_feed.png">
             <ShellContent ContentTemplate="{DataTemplate local:ItemsPage}" />
         </Tab>
+        <Tab Title="Weather" Icon="">
+            <ShellContent ContentTemplate="{DataTemplate local:WeatherPage}" />
+        </Tab>
         <Tab Title="About" Icon="tab_about.png">
             <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
         </Tab>

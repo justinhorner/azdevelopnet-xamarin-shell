@@ -129,13 +129,13 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.1.0.555618" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.1.0" />
+    <PackageReference Include="Xamarin.Forms" Version="4.5.0.617" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.2" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\ShellWeather\ShellWeather.csproj">
-      <Project>{7C026D66-7CDD-426B-8CD0-CD8A24A76EAF}</Project>
+      <Project>{E241E649-619A-40AA-B623-8E603C68134B}</Project>
       <Name>ShellWeather</Name>
     </ProjectReference>
   </ItemGroup>
