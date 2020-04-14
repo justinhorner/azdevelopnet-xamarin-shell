@@ -1,5 +1,23 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ShellWeather.Views.WeatherPage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:ShellWeather.ViewModels;assembly=ShellWeather"
+             x:Class="ShellWeather.Views.WeatherPage"
+             Title="{Binding Title}"
+             BindingContext="{}">
     <ContentPage.Content>
+        <StackLayout BackgroundColor="Gainsboro" HorizontalOptions="FillAndExpand"
+                     VerticalOptions="FillAndExpand"
+                     Padding="20"
+                     Spacing="20">
+            <Label Text="{Binding CurrentTemp}"
+                   HorizontalOptions="Center"
+                   FontSize="22" />
+            <Label Text="{Binding Summary}"
+                   HorizontalOptions="Center"
+                   FontSize="14" />
+            <Label Text="{Binding LastUpdated}"
+                   HorizontalOptions="Center"
+                   FontSize="12" />
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
