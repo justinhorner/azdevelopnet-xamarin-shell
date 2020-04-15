@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:ShellWeather.Controls;assembly=ShellWeather"
+             Title="Wikipedia"
+             x:Class="ShellWeather.Views.WikipediaPage">
+    <Shell.SearchHandler>
+        <controls:WikiSearchHandler 
+            Placeholder="Enter search term"
+            ShowsResults="true"
+            DisplayMemberName="Title" />
+    </Shell.SearchHandler>
+    <ContentPage.Content>
+        <StackLayout>
+            <WebView Source="https://en.wikipedia.org/wiki/Xamarin" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
