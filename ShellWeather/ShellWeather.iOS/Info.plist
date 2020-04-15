@@ -34,5 +34,7 @@
     <string>ShellWeather</string>
     <key>XSAppIconAssets</key>
     <string>Assets.xcassets/AppIcon.appiconset</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Your location is used to provide access to our homes</string>
 </dict>
 </plist>

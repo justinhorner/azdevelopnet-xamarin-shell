@@ -2,22 +2,57 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:ShellWeather.ViewModels;assembly=ShellWeather"
              x:Class="ShellWeather.Views.WeatherPage"
-             Title="{Binding Title}"
-             BindingContext="{}">
+             Title="{Binding Title}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Nearby" Command="{Binding GetLocationCommand}"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout BackgroundColor="Gainsboro" HorizontalOptions="FillAndExpand"
-                     VerticalOptions="FillAndExpand"
-                     Padding="20"
-                     Spacing="20">
-            <Label Text="{Binding CurrentTemp}"
-                   HorizontalOptions="Center"
-                   FontSize="22" />
-            <Label Text="{Binding Summary}"
-                   HorizontalOptions="Center"
-                   FontSize="14" />
-            <Label Text="{Binding LastUpdated}"
-                   HorizontalOptions="Center"
-                   FontSize="12" />
+                     VerticalOptions="FillAndExpand">
+            <StackLayout BackgroundColor="White" HorizontalOptions="FillAndExpand">
+                <Label Text="Current Weather:" FontSize="16" FontAttributes="Bold"
+                       HorizontalOptions="Center" />
+            </StackLayout>
+            <StackLayout Spacing="20">
+                <Label Text="{Binding CurrentGeo}"
+                       HorizontalOptions="Center"
+                       FontSize="12" />
+                <Label Text="{Binding CurrentTemp}"
+                       HorizontalOptions="Center"
+                       FontSize="22" />
+                <Label Text="{Binding Summary}"
+                       HorizontalOptions="Center"
+                       FontSize="14" />
+                <Label Text="{Binding LastUpdated}"
+                       HorizontalOptions="Center"
+                       FontSize="12" />
+            </StackLayout>
+            <StackLayout BackgroundColor="White" HorizontalOptions="FillAndExpand">
+                <Label Text="Forecast:" FontSize="16" FontAttributes="Bold"
+                       HorizontalOptions="Center" />
+            </StackLayout>    
+            <CollectionView
+                ItemsSource="{Binding DailyItems}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout HorizontalOptions="Center" Padding="20,0" BackgroundColor="Pink">
+                            <StackLayout Padding="0, 10" />    
+                            <Label Text="{Binding Day}" />
+                            <Label Text="{Binding TemperatureLow, StringFormat='Low temp: {0}'}" />
+                            <Label Text="{Binding TemperatureHigh, StringFormat='High temp: {0}'}" />
+                            <Label Text="{Binding PrecipitationChance, StringFormat='Precipitation: {0} %'}" />
+                            <Label Text="{Binding WindSpeed, StringFormat='Wind: {0}'}" />
+                            <Label Text="{Binding Summary, StringFormat='Summary: {0}'}" />
+                            <Frame HasShadow="False"
+                                   HeightRequest="2"
+                                   Padding="0"
+                                   BackgroundColor="Black"
+                                   HorizontalOptions="FillAndExpand" />
+                            <StackLayout Padding="0, 10" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
