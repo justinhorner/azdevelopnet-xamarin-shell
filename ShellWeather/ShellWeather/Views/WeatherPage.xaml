@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:ShellWeather.ViewModels;assembly=ShellWeather"
+             xmlns:views="clr-namespace:ShellWeather.Views;assembly=ShellWeather"
              x:Class="ShellWeather.Views.WeatherPage"
              Title="{Binding Title}">
     <ContentPage.ToolbarItems>
@@ -35,21 +36,7 @@
                 ItemsSource="{Binding DailyItems}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout HorizontalOptions="Center" Padding="20,0" BackgroundColor="Pink">
-                            <StackLayout Padding="0, 10" />    
-                            <Label Text="{Binding Day}" />
-                            <Label Text="{Binding TemperatureLow, StringFormat='Low temp: {0}'}" />
-                            <Label Text="{Binding TemperatureHigh, StringFormat='High temp: {0}'}" />
-                            <Label Text="{Binding PrecipitationChance, StringFormat='Precipitation: {0} %'}" />
-                            <Label Text="{Binding WindSpeed, StringFormat='Wind: {0}'}" />
-                            <Label Text="{Binding Summary, StringFormat='Summary: {0}'}" />
-                            <Frame HasShadow="False"
-                                   HeightRequest="2"
-                                   Padding="0"
-                                   BackgroundColor="Black"
-                                   HorizontalOptions="FillAndExpand" />
-                            <StackLayout Padding="0, 10" />
-                        </StackLayout>
+                        <views:DailyWeatherItemTemplate />
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>

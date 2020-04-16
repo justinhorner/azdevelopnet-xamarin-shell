@@ -6,6 +6,22 @@
              mc:Ignorable="d"
              x:Class="ShellWeather.App">
     <Application.Resources>
-        
+        <!-- Colors -->
+        <Color x:Key="DailyWeatherItemFrameBgColor">#50afe580</Color>
+        <Color x:Key="ExternalBrowserTextColor">#FF8091e5</Color>
+
+        <!-- Styles -->
+        <Style x:Key="DailyWeatherItemFrame" TargetType="Frame">
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="BackgroundColor" Value="{StaticResource DailyWeatherItemFrameBgColor}" />
+        </Style>
+
+        <Style x:Key="WikiDeatilsExternalBrowserLabel" TargetType="Label">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="TextColor" Value="{StaticResource ExternalBrowserTextColor}" />
+            <Setter Property="Text" Value="Open in the external browser" />
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+            <Setter Property="VerticalTextAlignment" Value="Center" />
+        </Style>
     </Application.Resources>
 </Application>

@@ -2,10 +2,17 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ShellWeather.Views.WikiDetailsPage">
+             x:Class="ShellWeather.Views.WikiDetailsPage"
+             Title="{Binding Title}">
     <ContentPage.Content>
         <StackLayout>
-            <WebView x:Name="webView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+            <WebView Source="{Binding Url}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+            <StackLayout BackgroundColor="#50e5dd80" HorizontalOptions="FillAndExpand" VerticalOptions="End" Padding="0, 10">
+                <Label Style="{DynamicResource WikiDeatilsExternalBrowserLabel}" />
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding OpenInExternalBrowserCommand}" NumberOfTapsRequired="1" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

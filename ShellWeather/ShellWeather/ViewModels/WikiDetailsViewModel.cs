@@ -1,26 +1,30 @@
+using System;
 using Xamarin.Forms;
 
 namespace ShellWeather.ViewModels
 {
-    //TODO: how to pass navigation params to the ViewModel, rather than the page 
-    //[QueryProperty("Url", "url")]
-    public class WikiDetailsViewModel : BaseViewModel
+    [QueryProperty("Url", "url")]
+    public class WikiDetailsViewModel : BaseViewModel 
     {
-        // private string _url { get; set; }
-        // public string Url
-        // {
-        //     get => _url;
-        //     set
-        //     {
-        //         _url = value;
-        //         OnPropertyChanged(nameof(Url));
-        //     }
-        //
-        // }
-        
+        private string _url { get; set; }
+        public string Url
+        {
+            get => _url;
+            set
+            {
+                // set the title & our webview source using the passed url parameter
+                this.Title = Uri.UnescapeDataString(value).Replace("/wiki/", string.Empty);
+                _url = $"https://en.wikipedia.org{value}";
+                OnPropertyChanged(nameof(Url));
+                OnPropertyChanged(nameof(Title));
+            }
+        }
+
+        public Command OpenInExternalBrowserCommand { get; set; }
+
         public WikiDetailsViewModel()
         {
-            //Url = url ?? "https://en.wikipedia.org/wiki/Xamarin";
+            OpenInExternalBrowserCommand = new Command(async () => await Xamarin.Essentials.Browser.OpenAsync(new Uri(Url), Xamarin.Essentials.BrowserLaunchMode.External));
         }
     }
 }
